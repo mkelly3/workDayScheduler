@@ -41,8 +41,18 @@ function determinePastPresentFuture(){
             $(this).addClass("future");
         }
 
-
     });
 }
+
+//when the save button is clicked save text inputed 
+$(document).ready(function(){
+
+    $(".saveBtn").on('click',function(){
+        var content = $(this).siblings(".textEvent").val();
+        var timeShown = $(this).parent().attr("id");
+    })
+
+})
+
 
 determinePastPresentFuture();
