@@ -17,8 +17,8 @@ function determinePastPresentFuture(){
     //console.log(timeNow);
 
     $(".time").each(function(){
-        console.log(this);
-        console.log(($(this).attr('id')));
+        //console.log(this);
+        //console.log(($(this).attr('id')));
 
         //making the IDs an integer 
         var scheduleTime = parseInt($(this).attr('id'));
@@ -48,11 +48,33 @@ function determinePastPresentFuture(){
 $(document).ready(function(){
 
     $(".saveBtn").on('click',function(){
-        var content = $(this).siblings(".textEvent").val();
-        var timeShown = $(this).parent().attr("id");
+
+        var scheduleData = {
+            //using DOM elements to call the sibling of the button which is the textarea
+            content: $(this).siblings(".textEvent").val(),
+            //parent element of the saveBTn is the row with an id of a time
+            timeShown: $(this).parent().attr("id")
+        };
+        console.log(scheduleData);
+        //localStorage.setItem("scheduleData", JSON.stringify(scheduleData));
+        localStorage.setItem(scheduleData.timeShown,scheduleData.content);
+    
     })
+
 
 })
 
 
 determinePastPresentFuture();
+
+//Setting the item from local storage
+$("#8 .textEvent").val(localStorage.getItem("8"));
+$("#9 .textEvent").val(localStorage.getItem("9"));
+$("#10 .textEvent").val(localStorage.getItem("10"));
+$("#11 .textEvent").val(localStorage.getItem("11"));
+$("#12 .textEvent").val(localStorage.getItem("12"));
+$("#13 .textEvent").val(localStorage.getItem("13"));
+$("#14 .textEvent").val(localStorage.getItem("14"));
+$("#15 .textEvent").val(localStorage.getItem("15"));
+$("#16 .textEvent").val(localStorage.getItem("16"));
+$("#17 .textEvent").val(localStorage.getItem("17"));
